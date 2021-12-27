@@ -1,0 +1,61 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="./src/style.css" rel="stylesheet" type="text/css">
+     <title>Document</title>
+ </head>
+ <body>
+     <div class="shadow off">
+         <div class="message">Loading</div>
+         <div class="error off">
+            <div class="text">aaa aaa aaa</div>
+            <div class="button">close</div>
+         </div>
+     </div>
+     <div class="header">Конвертер валют онлайн</div>
+     <section class="main">
+         <div id="block-1">
+             <div class="title">У меня есть</div>
+             <div class="menu">
+                 <div class="btn selected">RUB</div>
+                 <div class="btn">USD</div>
+                 <div class="btn">EUR</div>
+                 <div class="btn">GBP</div>
+                 <select class="btn">
+                 </select>
+             </div>
+             <div class="input">
+                 <input id="input-1" type="number">
+                 <div class="rate"></div>
+             </div>
+        </div>
+        <div id="btn-change" class="visible on">
+            <svg width="41" height="34" viewBox="0 0 41 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M31.5229 15.2253L38.6356 8.11266L31.5229 1" stroke="black" stroke-width="2"/>
+                <path d="M38.8461 8.17848L2.23682 8.17848" stroke="black" stroke-width="2"/>
+                <path d="M9.32324 18.548L2.21058 25.6607L9.32324 32.7733" stroke="black" stroke-width="2"/>
+                <path d="M2.00008 25.5949L38.6094 25.5949" stroke="black" stroke-width="2"/>
+            </svg>
+        </div>
+        <div id="block-2">
+            <div class="title">Хочу приобрести</div>
+            <div class="menu">
+                <div class="btn">RUB</div>
+                <div class="btn selected">USD</div>
+                <div class="btn">EUR</div>
+                <div class="btn">GBP</div>
+                <select class="btn">
+                </select>
+            </div>
+            <div class="input">
+                <input id="input-2" type="number"></input>
+                <div class="rate"></div>
+            </div>
+        </div>
+     </section>
+    <script src="./src/script.js"></script>
+ </body>
+ </html>   
