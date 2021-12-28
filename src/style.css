@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 
 body, html {
     width: 100%;
@@ -16,6 +17,8 @@ html {
     height: 100%;
     background: rgba(0, 0, 0, 0.44);
     position: absolute;
+    top: 0;
+    left: 0;
 }
 .shadow {
     display: none;
@@ -28,7 +31,7 @@ html {
     height: 54px;
     font-family: Roboto;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 400;
     font-size: 24px;
     line-height: 28px;
     display: flex;
@@ -36,8 +39,8 @@ html {
     text-align: center;
     color: #000000;
     background-color: white;
-    top: 285px;
-    left: 316px;
+    top: 292px;
+    left: 496px;
     padding: 0 25px;
 }
 .error {
@@ -45,8 +48,8 @@ html {
     border: 1px solid black;
     border-radius: 5%;
     position: absolute;
-    top: 380px;
-    left: 400px;
+    top: 400px;
+    left: 580px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -56,7 +59,7 @@ html {
     font-size: 16px;
     line-height: 24px;
 }
-.error.off {
+.error {
     display: none;
 }
 .error.on {
@@ -82,11 +85,11 @@ html {
 .header {
     font-family: Roboto;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 36px;
     line-height: 42px;
     color: #000000;
-    padding: 100px 0 0 65px;
+    padding: 56px 0 0 245px;
 }
 
 .main {
@@ -95,7 +98,22 @@ html {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-left: 65px;
+    margin-left: 245px;
+    font-weight: 400;
+}
+
+.title {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    color: #9F9F9F;
+    width: 120px;
+    height: 28px;
+    padding-top: 33px;
 }
 
 .menu {
@@ -124,29 +142,17 @@ html {
     cursor: pointer;
 }
 .btn.selected {
-    background-color: blue ;
+    background-color: #833AE0;
     color: white;
 }
 select {
     border: none;
+    outline: none;
     color: #9F9F9F;
     
 }
 option {
     color: black;
-}
-.title {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 14px;
-    display: flex;
-    align-items: center;
-    color: #9F9F9F;
-    width: 120px;
-    height: 28px;
-    padding-top: 33px;
 }
 
 #btn-change {
@@ -174,8 +180,8 @@ option {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
 }
+
 input {
     font-family: Roboto;
     font-style: normal;
@@ -185,7 +191,9 @@ input {
     color: #000000;
     border: none;
     padding: 11px 0 0 14px;
+    outline: none;
 }
+
 .rate {
     font-family: Roboto;
     font-style: normal;

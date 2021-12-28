@@ -36,20 +36,19 @@ function init() {
         clearTimeout(timeout);
         shadow.classList.remove('on')
         changeBtn.classList.add('on')
-        console.log(id)
+        // console.log(id)
 
         let factor = 0;
-        for (let x of Object.values(rates)) {
-            factor = x;
+        for (factor of Object.values(rates)) {
 
-            console.log(factor, blocks[id-1].inputField.value, blocks[id % 2].inputField.value);
+            console.log(factor, blocks[id - 1].inputField.value, blocks[id % 2].inputField.value);
             blocks[0].rateField.innerText = `1 ${blocks[0].value} = ${round(factor) + ' ' + blocks[1].value}`
-            blocks[1].rateField.innerText = `1 ${blocks[1].value} = ${round(1/factor) + ' ' + blocks[0].value}`
 
-            if(id === 2) {
-                factor = 1 / x;
+            if (id === 2) {
+                factor = 1 / factor;
             }
-            blocks[id % 2].inputField.value = round(blocks[id-1].inputField.value * factor);
+            blocks[1].rateField.innerText = `1 ${blocks[1].value} = ${round(factor) + ' ' + blocks[0].value}`
+            blocks[id % 2].inputField.value = round(blocks[id - 1].inputField.value * factor);
         }
     }
 
@@ -77,11 +76,7 @@ function init() {
         inquire(1);
     })
 
-    console.log(blocks);
 }
-
-
-
 
 class CurrencyInput {
     constructor(inputId, currencyList, defaultValue, callback) {
@@ -96,14 +91,14 @@ class CurrencyInput {
         this.container = block;
         this.select = select;
         this.btns = btns;
-        
+
         select.addEventListener('change', () => {
             block.querySelector('.selected').classList.remove('selected');
             select.classList.add('selected');
             this.value = select.value;
             callback(inputId);
         })
-        
+
         btns.forEach(btn => {
             btn.addEventListener('click', () => {
                 block.querySelector('.selected').classList.remove('selected');
@@ -112,22 +107,23 @@ class CurrencyInput {
                 callback(inputId);
             })
         })
-        
+
         currencyList.forEach((currencyText) => {
             const option = document.createElement('option');
             option.innerText = currencyText;
             select.append(option);
         });
-        
+
         const input = block.querySelector('input')
         input.addEventListener('change', (e) => {
-            this.inputField.value = e.target.value;
-            console.log(this.inputField, inputId)
+            console.log(e.target.value)
+            this.inputField.value = e.target.value.replace(/,/, '.');
+            console.log(this.inputField.value, inputId)
             callback(inputId);
         })
-        
+
     }
-    
+
     setValue(value) {
         const btn = [...this.btns].find(btn => btn.innerText === value);
         this.container.querySelector('.selected').classList.remove('selected');
@@ -148,19 +144,21 @@ const API = {
         try {
             res = await fetch(`https://api.exchangerate.host/latest?base=${base}&symbols=${symbols}`)
             data = await res.json();
-            console.log(data.rates)
+            // console.log(data.rates)
             callback(data.rates, inputId);
         } catch (e) {
-            console.log(e.message)
+            // console.log(e.message)
             err = document.querySelector('.error')
-            err.classList.toggle('on');
-            err.classList.toggle('off');
+            err.classList.add('on');
             err.firstElementChild.innerText = `${e.message}`
             close = err.querySelector('.button');
-            console.log(close)
+            // console.log(close)
             close.addEventListener('click', () => {
                 err.classList.toggle('on');
-                err.classList.toggle('off');
+                const shadow = document.querySelector('.shadow')
+                const changeBtn = document.querySelector('#btn-change')
+                changeBtn.classList.add('on');
+                shadow.classList.remove('on');
             })
 
         }
