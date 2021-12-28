@@ -17,7 +17,7 @@ html {
     background: rgba(0, 0, 0, 0.44);
     position: absolute;
 }
-.shadow.off {
+.shadow {
     display: none;
 }
 .shadow.on {
@@ -62,13 +62,14 @@ html {
 .error.on {
     display: flex;
 }
+
 .text {
     display: flex;
     align-items: center;
     text-align: center;
     color: #000000;
-    /* background-color: white; */
 }
+
 .button {
     cursor: pointer;
     width: auto;
@@ -104,7 +105,6 @@ html {
     padding-top: 2px;
     align-items: center;
     justify-content: space-between;
-
     font-family: Roboto;
     background-color: white;
     color: #9F9F9F;
@@ -129,8 +129,10 @@ html {
 }
 select {
     border: none;
+    color: #9F9F9F;
+    
 }
-.option {
+option {
     color: black;
 }
 .title {
@@ -156,7 +158,7 @@ select {
     display: block;
 }
 
-#btn-change.off {
+#btn-change {
     display: none;
 }
 
